@@ -1,0 +1,1506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SeekToSpeakModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="City_id" Type="int" />
+          <Property Name="status" Type="varchar(max)" />
+          <Property Name="major" Type="varchar" MaxLength="50" />
+          <Property Name="regestration_date" Type="date" />
+          <Property Name="profile_pic" Type="varchar(max)" />
+          <Property Name="back_pic" Type="varchar(max)" />
+          <Property Name="is_accepted" Type="bit" />
+          <Property Name="role" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Category_id" />
+          </Key>
+          <Property Name="Category_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category_name" Type="varchar" MaxLength="50" />
+          <Property Name="Category_description" Type="varchar(max)" />
+          <Property Name="Category_image" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="City_id" />
+          </Key>
+          <Property Name="City_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FeedBacks">
+          <Key>
+            <PropertyRef Name="Feed_id" />
+          </Key>
+          <Property Name="Feed_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="giver_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="reciever_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="session_id" Type="int" Nullable="false" />
+          <Property Name="comment" Type="varchar(max)" Nullable="false" />
+          <Property Name="Level_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="languages">
+          <Key>
+            <PropertyRef Name="language_id" />
+          </Key>
+          <Property Name="language_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="language_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="language_image" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Levels">
+          <Key>
+            <PropertyRef Name="Level_id" />
+          </Key>
+          <Property Name="Level_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Level_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Level_Description" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="payment_methods">
+          <Key>
+            <PropertyRef Name="method_id" />
+          </Key>
+          <Property Name="method_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="card_type" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="card_digits" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="payments">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subscription_id" Type="int" Nullable="false" />
+          <Property Name="payment_date" Type="datetime" Nullable="false" />
+          <Property Name="amount" Type="float" Nullable="false" />
+          <Property Name="payment_method_id" Type="int" />
+        </EntityType>
+        <EntityType Name="sessions">
+          <Key>
+            <PropertyRef Name="session_id" />
+          </Key>
+          <Property Name="session_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="speaker_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+          <Property Name="start_time" Type="datetime" Nullable="false" />
+          <Property Name="end_time" Type="datetime" Nullable="false" />
+          <Property Name="Session_Link" Type="varchar(max)" />
+          <Property Name="Session_List" Type="varchar(max)" />
+          <Property Name="capacity" Type="int" Nullable="false" />
+          <Property Name="remaining_capacity" Type="int" Nullable="false" />
+          <Property Name="is_cancelled" Type="bit" Nullable="false" />
+          <Property Name="minumum_Level" Type="int" />
+          <Property Name="maximum_Level" Type="int" />
+          <Property Name="session_language_id" Type="int" Nullable="false" />
+          <Property Name="is_free" Type="bit" />
+          <Property Name="Category_id" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="student_session_registrations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="student_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="session_id" Type="int" Nullable="false" />
+          <Property Name="registration_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subscription_plans">
+          <Key>
+            <PropertyRef Name="plan_id" />
+          </Key>
+          <Property Name="plan_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="description" Type="varchar(max)" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="Available_Sessions" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subscriptions">
+          <Key>
+            <PropertyRef Name="subscription_id" />
+          </Key>
+          <Property Name="subscription_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="plan_id" Type="int" Nullable="false" />
+          <Property Name="start_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" Nullable="false" />
+          <Property Name="is_active" Type="bit" Nullable="false" />
+          <Property Name="left_sessions" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User_languages">
+          <Key>
+            <PropertyRef Name="User_language_id" />
+          </Key>
+          <Property Name="User_language_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="language_id" Type="int" Nullable="false" />
+          <Property Name="language_level" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__FeedBacks__giver__04E4BC85">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="FeedBacks" Type="Self.FeedBacks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FeedBacks">
+              <PropertyRef Name="giver_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FeedBacks__Level__07C12930">
+          <End Role="Levels" Type="Self.Levels" Multiplicity="1" />
+          <End Role="FeedBacks" Type="Self.FeedBacks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Levels">
+              <PropertyRef Name="Level_id" />
+            </Principal>
+            <Dependent Role="FeedBacks">
+              <PropertyRef Name="Level_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FeedBacks__recie__05D8E0BE">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="FeedBacks" Type="Self.FeedBacks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FeedBacks">
+              <PropertyRef Name="reciever_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FeedBacks__sessi__06CD04F7">
+          <End Role="sessions" Type="Self.sessions" Multiplicity="1" />
+          <End Role="FeedBacks" Type="Self.FeedBacks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sessions">
+              <PropertyRef Name="session_id" />
+            </Principal>
+            <Dependent Role="FeedBacks">
+              <PropertyRef Name="session_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__payment_m__user___7E37BEF6">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="payment_methods" Type="Self.payment_methods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="payment_methods">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__payments__subscr__7B5B524B">
+          <End Role="subscriptions" Type="Self.subscriptions" Multiplicity="1" />
+          <End Role="payments" Type="Self.payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscriptions">
+              <PropertyRef Name="subscription_id" />
+            </Principal>
+            <Dependent Role="payments">
+              <PropertyRef Name="subscription_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sessions__maximu__778AC167">
+          <End Role="Levels" Type="Self.Levels" Multiplicity="0..1" />
+          <End Role="sessions" Type="Self.sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Levels">
+              <PropertyRef Name="Level_id" />
+            </Principal>
+            <Dependent Role="sessions">
+              <PropertyRef Name="maximum_Level" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sessions__minumu__76969D2E">
+          <End Role="Levels" Type="Self.Levels" Multiplicity="0..1" />
+          <End Role="sessions" Type="Self.sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Levels">
+              <PropertyRef Name="Level_id" />
+            </Principal>
+            <Dependent Role="sessions">
+              <PropertyRef Name="minumum_Level" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sessions__sessio__19DFD96B">
+          <End Role="languages" Type="Self.languages" Multiplicity="1" />
+          <End Role="sessions" Type="Self.sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languages">
+              <PropertyRef Name="language_id" />
+            </Principal>
+            <Dependent Role="sessions">
+              <PropertyRef Name="session_language_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__speaker_l__langu__17F790F9">
+          <End Role="languages" Type="Self.languages" Multiplicity="1" />
+          <End Role="User_languages" Type="Self.User_languages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languages">
+              <PropertyRef Name="language_id" />
+            </Principal>
+            <Dependent Role="User_languages">
+              <PropertyRef Name="language_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__speaker_l__langu__18EBB532">
+          <End Role="Levels" Type="Self.Levels" Multiplicity="1" />
+          <End Role="User_languages" Type="Self.User_languages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Levels">
+              <PropertyRef Name="Level_id" />
+            </Principal>
+            <Dependent Role="User_languages">
+              <PropertyRef Name="language_level" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__speaker_l__speak__17036CC0">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="User_languages" Type="Self.User_languages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_languages">
+              <PropertyRef Name="User_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__student_s__sessi__02084FDA">
+          <End Role="sessions" Type="Self.sessions" Multiplicity="1" />
+          <End Role="student_session_registrations" Type="Self.student_session_registrations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sessions">
+              <PropertyRef Name="session_id" />
+            </Principal>
+            <Dependent Role="student_session_registrations">
+              <PropertyRef Name="session_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__student_s__stude__01142BA1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="student_session_registrations" Type="Self.student_session_registrations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="student_session_registrations">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subscript__plan___70DDC3D8">
+          <End Role="subscription_plans" Type="Self.subscription_plans" Multiplicity="1" />
+          <End Role="subscriptions" Type="Self.subscriptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscription_plans">
+              <PropertyRef Name="plan_id" />
+            </Principal>
+            <Dependent Role="subscriptions">
+              <PropertyRef Name="plan_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subscript__user___6FE99F9F">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="subscriptions" Type="Self.subscriptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="subscriptions">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsers_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="City_id" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="City_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_payments_payment_methods">
+          <End Role="payment_methods" Type="Self.payment_methods" Multiplicity="0..1" />
+          <End Role="payments" Type="Self.payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="payment_methods">
+              <PropertyRef Name="method_id" />
+            </Principal>
+            <Dependent Role="payments">
+              <PropertyRef Name="payment_method_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sessions_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="sessions" Type="Self.sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sessions">
+              <PropertyRef Name="speaker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sessions_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="sessions" Type="Self.sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Category_id" />
+            </Principal>
+            <Dependent Role="sessions">
+              <PropertyRef Name="Category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SeekToSpeakModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeedBacks" EntityType="Self.FeedBacks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="languages" EntityType="Self.languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Levels" EntityType="Self.Levels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payment_methods" EntityType="Self.payment_methods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payments" EntityType="Self.payments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sessions" EntityType="Self.sessions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="student_session_registrations" EntityType="Self.student_session_registrations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subscription_plans" EntityType="Self.subscription_plans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subscriptions" EntityType="Self.subscriptions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_languages" EntityType="Self.User_languages" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__FeedBacks__giver__04E4BC85" Association="Self.FK__FeedBacks__giver__04E4BC85">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="FeedBacks" EntitySet="FeedBacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FeedBacks__Level__07C12930" Association="Self.FK__FeedBacks__Level__07C12930">
+            <End Role="Levels" EntitySet="Levels" />
+            <End Role="FeedBacks" EntitySet="FeedBacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FeedBacks__recie__05D8E0BE" Association="Self.FK__FeedBacks__recie__05D8E0BE">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="FeedBacks" EntitySet="FeedBacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FeedBacks__sessi__06CD04F7" Association="Self.FK__FeedBacks__sessi__06CD04F7">
+            <End Role="sessions" EntitySet="sessions" />
+            <End Role="FeedBacks" EntitySet="FeedBacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__payment_m__user___7E37BEF6" Association="Self.FK__payment_m__user___7E37BEF6">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="payment_methods" EntitySet="payment_methods" />
+          </AssociationSet>
+          <AssociationSet Name="FK__payments__subscr__7B5B524B" Association="Self.FK__payments__subscr__7B5B524B">
+            <End Role="subscriptions" EntitySet="subscriptions" />
+            <End Role="payments" EntitySet="payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sessions__maximu__778AC167" Association="Self.FK__sessions__maximu__778AC167">
+            <End Role="Levels" EntitySet="Levels" />
+            <End Role="sessions" EntitySet="sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sessions__minumu__76969D2E" Association="Self.FK__sessions__minumu__76969D2E">
+            <End Role="Levels" EntitySet="Levels" />
+            <End Role="sessions" EntitySet="sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sessions__sessio__19DFD96B" Association="Self.FK__sessions__sessio__19DFD96B">
+            <End Role="languages" EntitySet="languages" />
+            <End Role="sessions" EntitySet="sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__speaker_l__langu__17F790F9" Association="Self.FK__speaker_l__langu__17F790F9">
+            <End Role="languages" EntitySet="languages" />
+            <End Role="User_languages" EntitySet="User_languages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__speaker_l__langu__18EBB532" Association="Self.FK__speaker_l__langu__18EBB532">
+            <End Role="Levels" EntitySet="Levels" />
+            <End Role="User_languages" EntitySet="User_languages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__speaker_l__speak__17036CC0" Association="Self.FK__speaker_l__speak__17036CC0">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="User_languages" EntitySet="User_languages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__student_s__sessi__02084FDA" Association="Self.FK__student_s__sessi__02084FDA">
+            <End Role="sessions" EntitySet="sessions" />
+            <End Role="student_session_registrations" EntitySet="student_session_registrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__student_s__stude__01142BA1" Association="Self.FK__student_s__stude__01142BA1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="student_session_registrations" EntitySet="student_session_registrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subscript__plan___70DDC3D8" Association="Self.FK__subscript__plan___70DDC3D8">
+            <End Role="subscription_plans" EntitySet="subscription_plans" />
+            <End Role="subscriptions" EntitySet="subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subscript__user___6FE99F9F" Association="Self.FK__subscript__user___6FE99F9F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="subscriptions" EntitySet="subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsers_Cities" Association="Self.FK_AspNetUsers_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_payments_payment_methods" Association="Self.FK_payments_payment_methods">
+            <End Role="payment_methods" EntitySet="payment_methods" />
+            <End Role="payments" EntitySet="payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sessions_AspNetUsers" Association="Self.FK_sessions_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="sessions" EntitySet="sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sessions_Categories" Association="Self.FK_sessions_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="sessions" EntitySet="sessions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SeekToSpeakModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City_id" Type="Int32" />
+          <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="major" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="regestration_date" Type="DateTime" Precision="0" />
+          <Property Name="profile_pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="back_pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="is_accepted" Type="Boolean" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="FeedBacks" Relationship="Self.FK__FeedBacks__giver__04E4BC85" FromRole="AspNetUsers" ToRole="FeedBacks" />
+          <NavigationProperty Name="FeedBacks1" Relationship="Self.FK__FeedBacks__recie__05D8E0BE" FromRole="AspNetUsers" ToRole="FeedBacks" />
+          <NavigationProperty Name="payment_methods" Relationship="Self.FK__payment_m__user___7E37BEF6" FromRole="AspNetUsers" ToRole="payment_methods" />
+          <NavigationProperty Name="User_languages" Relationship="Self.FK__speaker_l__speak__17036CC0" FromRole="AspNetUsers" ToRole="User_languages" />
+          <NavigationProperty Name="student_session_registrations" Relationship="Self.FK__student_s__stude__01142BA1" FromRole="AspNetUsers" ToRole="student_session_registrations" />
+          <NavigationProperty Name="subscriptions" Relationship="Self.FK__subscript__user___6FE99F9F" FromRole="AspNetUsers" ToRole="subscriptions" />
+          <NavigationProperty Name="City" Relationship="Self.FK_AspNetUsers_Cities" FromRole="AspNetUsers" ToRole="Cities" />
+          <NavigationProperty Name="sessions" Relationship="Self.FK_sessions_AspNetUsers" FromRole="AspNetUsers" ToRole="sessions" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_id" />
+          </Key>
+          <Property Name="Category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Category_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Category_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="sessions" Relationship="Self.FK_sessions_Categories" FromRole="Categories" ToRole="sessions" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="City_id" />
+          </Key>
+          <Property Name="City_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_AspNetUsers_Cities" FromRole="Cities" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="FeedBack">
+          <Key>
+            <PropertyRef Name="Feed_id" />
+          </Key>
+          <Property Name="Feed_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="giver_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="reciever_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="session_id" Type="Int32" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Level_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__FeedBacks__giver__04E4BC85" FromRole="FeedBacks" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK__FeedBacks__recie__05D8E0BE" FromRole="FeedBacks" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Level" Relationship="Self.FK__FeedBacks__Level__07C12930" FromRole="FeedBacks" ToRole="Levels" />
+          <NavigationProperty Name="session" Relationship="Self.FK__FeedBacks__sessi__06CD04F7" FromRole="FeedBacks" ToRole="sessions" />
+        </EntityType>
+        <EntityType Name="language">
+          <Key>
+            <PropertyRef Name="language_id" />
+          </Key>
+          <Property Name="language_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="language_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="language_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="sessions" Relationship="Self.FK__sessions__sessio__19DFD96B" FromRole="languages" ToRole="sessions" />
+          <NavigationProperty Name="User_languages" Relationship="Self.FK__speaker_l__langu__17F790F9" FromRole="languages" ToRole="User_languages" />
+        </EntityType>
+        <EntityType Name="Level">
+          <Key>
+            <PropertyRef Name="Level_id" />
+          </Key>
+          <Property Name="Level_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Level_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Level_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FeedBacks" Relationship="Self.FK__FeedBacks__Level__07C12930" FromRole="Levels" ToRole="FeedBacks" />
+          <NavigationProperty Name="sessions" Relationship="Self.FK__sessions__maximu__778AC167" FromRole="Levels" ToRole="sessions" />
+          <NavigationProperty Name="sessions1" Relationship="Self.FK__sessions__minumu__76969D2E" FromRole="Levels" ToRole="sessions" />
+          <NavigationProperty Name="User_languages" Relationship="Self.FK__speaker_l__langu__18EBB532" FromRole="Levels" ToRole="User_languages" />
+        </EntityType>
+        <EntityType Name="payment_methods">
+          <Key>
+            <PropertyRef Name="method_id" />
+          </Key>
+          <Property Name="method_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="card_type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="card_digits" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__payment_m__user___7E37BEF6" FromRole="payment_methods" ToRole="AspNetUsers" />
+          <NavigationProperty Name="payments" Relationship="Self.FK_payments_payment_methods" FromRole="payment_methods" ToRole="payments" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subscription_id" Type="Int32" Nullable="false" />
+          <Property Name="payment_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="amount" Type="Double" Nullable="false" />
+          <Property Name="payment_method_id" Type="Int32" />
+          <NavigationProperty Name="payment_methods" Relationship="Self.FK_payments_payment_methods" FromRole="payments" ToRole="payment_methods" />
+          <NavigationProperty Name="subscription" Relationship="Self.FK__payments__subscr__7B5B524B" FromRole="payments" ToRole="subscriptions" />
+        </EntityType>
+        <EntityType Name="session">
+          <Key>
+            <PropertyRef Name="session_id" />
+          </Key>
+          <Property Name="session_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="speaker_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="start_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="end_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Session_Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Session_List" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="capacity" Type="Int32" Nullable="false" />
+          <Property Name="remaining_capacity" Type="Int32" Nullable="false" />
+          <Property Name="is_cancelled" Type="Boolean" Nullable="false" />
+          <Property Name="minumum_Level" Type="Int32" />
+          <Property Name="maximum_Level" Type="Int32" />
+          <Property Name="session_language_id" Type="Int32" Nullable="false" />
+          <Property Name="is_free" Type="Boolean" />
+          <Property Name="Category_id" Type="Int32" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_sessions_AspNetUsers" FromRole="sessions" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_sessions_Categories" FromRole="sessions" ToRole="Categories" />
+          <NavigationProperty Name="FeedBacks" Relationship="Self.FK__FeedBacks__sessi__06CD04F7" FromRole="sessions" ToRole="FeedBacks" />
+          <NavigationProperty Name="language" Relationship="Self.FK__sessions__sessio__19DFD96B" FromRole="sessions" ToRole="languages" />
+          <NavigationProperty Name="Level" Relationship="Self.FK__sessions__maximu__778AC167" FromRole="sessions" ToRole="Levels" />
+          <NavigationProperty Name="Level1" Relationship="Self.FK__sessions__minumu__76969D2E" FromRole="sessions" ToRole="Levels" />
+          <NavigationProperty Name="student_session_registrations" Relationship="Self.FK__student_s__sessi__02084FDA" FromRole="sessions" ToRole="student_session_registrations" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="student_session_registrations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="student_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="session_id" Type="Int32" Nullable="false" />
+          <Property Name="registration_date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__student_s__stude__01142BA1" FromRole="student_session_registrations" ToRole="AspNetUsers" />
+          <NavigationProperty Name="session" Relationship="Self.FK__student_s__sessi__02084FDA" FromRole="student_session_registrations" ToRole="sessions" />
+        </EntityType>
+        <EntityType Name="subscription_plans">
+          <Key>
+            <PropertyRef Name="plan_id" />
+          </Key>
+          <Property Name="plan_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="Available_Sessions" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="subscriptions" Relationship="Self.FK__subscript__plan___70DDC3D8" FromRole="subscription_plans" ToRole="subscriptions" />
+        </EntityType>
+        <EntityType Name="subscription">
+          <Key>
+            <PropertyRef Name="subscription_id" />
+          </Key>
+          <Property Name="subscription_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="plan_id" Type="Int32" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="is_active" Type="Boolean" Nullable="false" />
+          <Property Name="left_sessions" Type="Int32" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__subscript__user___6FE99F9F" FromRole="subscriptions" ToRole="AspNetUsers" />
+          <NavigationProperty Name="payments" Relationship="Self.FK__payments__subscr__7B5B524B" FromRole="subscriptions" ToRole="payments" />
+          <NavigationProperty Name="subscription_plans" Relationship="Self.FK__subscript__plan___70DDC3D8" FromRole="subscriptions" ToRole="subscription_plans" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User_languages">
+          <Key>
+            <PropertyRef Name="User_language_id" />
+          </Key>
+          <Property Name="User_language_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="language_id" Type="Int32" Nullable="false" />
+          <Property Name="language_level" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK__speaker_l__speak__17036CC0" FromRole="User_languages" ToRole="AspNetUsers" />
+          <NavigationProperty Name="language" Relationship="Self.FK__speaker_l__langu__17F790F9" FromRole="User_languages" ToRole="languages" />
+          <NavigationProperty Name="Level" Relationship="Self.FK__speaker_l__langu__18EBB532" FromRole="User_languages" ToRole="Levels" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FeedBacks__giver__04E4BC85">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="FeedBacks" Type="Self.FeedBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FeedBacks">
+              <PropertyRef Name="giver_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FeedBacks__recie__05D8E0BE">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="FeedBacks" Type="Self.FeedBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FeedBacks">
+              <PropertyRef Name="reciever_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__payment_m__user___7E37BEF6">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="payment_methods" Type="Self.payment_methods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="payment_methods">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__speaker_l__speak__17036CC0">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="User_languages" Type="Self.User_languages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_languages">
+              <PropertyRef Name="User_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__student_s__stude__01142BA1">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="student_session_registrations" Type="Self.student_session_registrations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="student_session_registrations">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subscript__user___6FE99F9F">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="subscriptions" Type="Self.subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="subscriptions">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsers_Cities">
+          <End Role="Cities" Type="Self.City" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="City_id" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="City_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sessions_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="sessions" Type="Self.session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sessions">
+              <PropertyRef Name="speaker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sessions_Categories">
+          <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="sessions" Type="Self.session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Category_id" />
+            </Principal>
+            <Dependent Role="sessions">
+              <PropertyRef Name="Category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FeedBacks__Level__07C12930">
+          <End Role="Levels" Type="Self.Level" Multiplicity="1" />
+          <End Role="FeedBacks" Type="Self.FeedBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Levels">
+              <PropertyRef Name="Level_id" />
+            </Principal>
+            <Dependent Role="FeedBacks">
+              <PropertyRef Name="Level_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FeedBacks__sessi__06CD04F7">
+          <End Role="sessions" Type="Self.session" Multiplicity="1" />
+          <End Role="FeedBacks" Type="Self.FeedBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sessions">
+              <PropertyRef Name="session_id" />
+            </Principal>
+            <Dependent Role="FeedBacks">
+              <PropertyRef Name="session_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sessions__sessio__19DFD96B">
+          <End Role="languages" Type="Self.language" Multiplicity="1" />
+          <End Role="sessions" Type="Self.session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languages">
+              <PropertyRef Name="language_id" />
+            </Principal>
+            <Dependent Role="sessions">
+              <PropertyRef Name="session_language_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__speaker_l__langu__17F790F9">
+          <End Role="languages" Type="Self.language" Multiplicity="1" />
+          <End Role="User_languages" Type="Self.User_languages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languages">
+              <PropertyRef Name="language_id" />
+            </Principal>
+            <Dependent Role="User_languages">
+              <PropertyRef Name="language_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sessions__maximu__778AC167">
+          <End Role="Levels" Type="Self.Level" Multiplicity="0..1" />
+          <End Role="sessions" Type="Self.session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Levels">
+              <PropertyRef Name="Level_id" />
+            </Principal>
+            <Dependent Role="sessions">
+              <PropertyRef Name="maximum_Level" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__sessions__minumu__76969D2E">
+          <End Role="Levels" Type="Self.Level" Multiplicity="0..1" />
+          <End Role="sessions" Type="Self.session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Levels">
+              <PropertyRef Name="Level_id" />
+            </Principal>
+            <Dependent Role="sessions">
+              <PropertyRef Name="minumum_Level" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__speaker_l__langu__18EBB532">
+          <End Role="Levels" Type="Self.Level" Multiplicity="1" />
+          <End Role="User_languages" Type="Self.User_languages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Levels">
+              <PropertyRef Name="Level_id" />
+            </Principal>
+            <Dependent Role="User_languages">
+              <PropertyRef Name="language_level" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_payments_payment_methods">
+          <End Role="payment_methods" Type="Self.payment_methods" Multiplicity="0..1" />
+          <End Role="payments" Type="Self.payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="payment_methods">
+              <PropertyRef Name="method_id" />
+            </Principal>
+            <Dependent Role="payments">
+              <PropertyRef Name="payment_method_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__payments__subscr__7B5B524B">
+          <End Role="subscriptions" Type="Self.subscription" Multiplicity="1" />
+          <End Role="payments" Type="Self.payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscriptions">
+              <PropertyRef Name="subscription_id" />
+            </Principal>
+            <Dependent Role="payments">
+              <PropertyRef Name="subscription_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__student_s__sessi__02084FDA">
+          <End Role="sessions" Type="Self.session" Multiplicity="1" />
+          <End Role="student_session_registrations" Type="Self.student_session_registrations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sessions">
+              <PropertyRef Name="session_id" />
+            </Principal>
+            <Dependent Role="student_session_registrations">
+              <PropertyRef Name="session_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subscript__plan___70DDC3D8">
+          <End Role="subscription_plans" Type="Self.subscription_plans" Multiplicity="1" />
+          <End Role="subscriptions" Type="Self.subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subscription_plans">
+              <PropertyRef Name="plan_id" />
+            </Principal>
+            <Dependent Role="subscriptions">
+              <PropertyRef Name="plan_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="SeekToSpeakEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="FeedBacks" EntityType="Self.FeedBack" />
+          <EntitySet Name="languages" EntityType="Self.language" />
+          <EntitySet Name="Levels" EntityType="Self.Level" />
+          <EntitySet Name="payment_methods" EntityType="Self.payment_methods" />
+          <EntitySet Name="payments" EntityType="Self.payment" />
+          <EntitySet Name="sessions" EntityType="Self.session" />
+          <EntitySet Name="student_session_registrations" EntityType="Self.student_session_registrations" />
+          <EntitySet Name="subscription_plans" EntityType="Self.subscription_plans" />
+          <EntitySet Name="subscriptions" EntityType="Self.subscription" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="User_languages" EntityType="Self.User_languages" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FeedBacks__giver__04E4BC85" Association="Self.FK__FeedBacks__giver__04E4BC85">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="FeedBacks" EntitySet="FeedBacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FeedBacks__recie__05D8E0BE" Association="Self.FK__FeedBacks__recie__05D8E0BE">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="FeedBacks" EntitySet="FeedBacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__payment_m__user___7E37BEF6" Association="Self.FK__payment_m__user___7E37BEF6">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="payment_methods" EntitySet="payment_methods" />
+          </AssociationSet>
+          <AssociationSet Name="FK__speaker_l__speak__17036CC0" Association="Self.FK__speaker_l__speak__17036CC0">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="User_languages" EntitySet="User_languages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__student_s__stude__01142BA1" Association="Self.FK__student_s__stude__01142BA1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="student_session_registrations" EntitySet="student_session_registrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subscript__user___6FE99F9F" Association="Self.FK__subscript__user___6FE99F9F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="subscriptions" EntitySet="subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsers_Cities" Association="Self.FK_AspNetUsers_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sessions_AspNetUsers" Association="Self.FK_sessions_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="sessions" EntitySet="sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sessions_Categories" Association="Self.FK_sessions_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="sessions" EntitySet="sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FeedBacks__Level__07C12930" Association="Self.FK__FeedBacks__Level__07C12930">
+            <End Role="Levels" EntitySet="Levels" />
+            <End Role="FeedBacks" EntitySet="FeedBacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FeedBacks__sessi__06CD04F7" Association="Self.FK__FeedBacks__sessi__06CD04F7">
+            <End Role="sessions" EntitySet="sessions" />
+            <End Role="FeedBacks" EntitySet="FeedBacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sessions__sessio__19DFD96B" Association="Self.FK__sessions__sessio__19DFD96B">
+            <End Role="languages" EntitySet="languages" />
+            <End Role="sessions" EntitySet="sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__speaker_l__langu__17F790F9" Association="Self.FK__speaker_l__langu__17F790F9">
+            <End Role="languages" EntitySet="languages" />
+            <End Role="User_languages" EntitySet="User_languages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sessions__maximu__778AC167" Association="Self.FK__sessions__maximu__778AC167">
+            <End Role="Levels" EntitySet="Levels" />
+            <End Role="sessions" EntitySet="sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__sessions__minumu__76969D2E" Association="Self.FK__sessions__minumu__76969D2E">
+            <End Role="Levels" EntitySet="Levels" />
+            <End Role="sessions" EntitySet="sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__speaker_l__langu__18EBB532" Association="Self.FK__speaker_l__langu__18EBB532">
+            <End Role="Levels" EntitySet="Levels" />
+            <End Role="User_languages" EntitySet="User_languages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_payments_payment_methods" Association="Self.FK_payments_payment_methods">
+            <End Role="payment_methods" EntitySet="payment_methods" />
+            <End Role="payments" EntitySet="payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__payments__subscr__7B5B524B" Association="Self.FK__payments__subscr__7B5B524B">
+            <End Role="subscriptions" EntitySet="subscriptions" />
+            <End Role="payments" EntitySet="payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__student_s__sessi__02084FDA" Association="Self.FK__student_s__sessi__02084FDA">
+            <End Role="sessions" EntitySet="sessions" />
+            <End Role="student_session_registrations" EntitySet="student_session_registrations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subscript__plan___70DDC3D8" Association="Self.FK__subscript__plan___70DDC3D8">
+            <End Role="subscription_plans" EntitySet="subscription_plans" />
+            <End Role="subscriptions" EntitySet="subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SeekToSpeakModelStoreContainer" CdmEntityContainer="SeekToSpeakEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="City_id" ColumnName="City_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="major" ColumnName="major" />
+                <ScalarProperty Name="regestration_date" ColumnName="regestration_date" />
+                <ScalarProperty Name="profile_pic" ColumnName="profile_pic" />
+                <ScalarProperty Name="back_pic" ColumnName="back_pic" />
+                <ScalarProperty Name="is_accepted" ColumnName="is_accepted" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="Category_id" ColumnName="Category_id" />
+                <ScalarProperty Name="Category_name" ColumnName="Category_name" />
+                <ScalarProperty Name="Category_description" ColumnName="Category_description" />
+                <ScalarProperty Name="Category_image" ColumnName="Category_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="City_id" ColumnName="City_id" />
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeedBacks">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.FeedBack">
+              <MappingFragment StoreEntitySet="FeedBacks">
+                <ScalarProperty Name="Feed_id" ColumnName="Feed_id" />
+                <ScalarProperty Name="giver_id" ColumnName="giver_id" />
+                <ScalarProperty Name="reciever_id" ColumnName="reciever_id" />
+                <ScalarProperty Name="session_id" ColumnName="session_id" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="Level_id" ColumnName="Level_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="languages">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.language">
+              <MappingFragment StoreEntitySet="languages">
+                <ScalarProperty Name="language_id" ColumnName="language_id" />
+                <ScalarProperty Name="language_name" ColumnName="language_name" />
+                <ScalarProperty Name="language_image" ColumnName="language_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Levels">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.Level">
+              <MappingFragment StoreEntitySet="Levels">
+                <ScalarProperty Name="Level_id" ColumnName="Level_id" />
+                <ScalarProperty Name="Level_name" ColumnName="Level_name" />
+                <ScalarProperty Name="Level_Description" ColumnName="Level_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payment_methods">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.payment_methods">
+              <MappingFragment StoreEntitySet="payment_methods">
+                <ScalarProperty Name="method_id" ColumnName="method_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="card_type" ColumnName="card_type" />
+                <ScalarProperty Name="card_digits" ColumnName="card_digits" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payments">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.payment">
+              <MappingFragment StoreEntitySet="payments">
+                <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+                <ScalarProperty Name="subscription_id" ColumnName="subscription_id" />
+                <ScalarProperty Name="payment_date" ColumnName="payment_date" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="payment_method_id" ColumnName="payment_method_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sessions">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.session">
+              <MappingFragment StoreEntitySet="sessions">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="session_id" ColumnName="session_id" />
+                <ScalarProperty Name="speaker_id" ColumnName="speaker_id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="start_time" ColumnName="start_time" />
+                <ScalarProperty Name="end_time" ColumnName="end_time" />
+                <ScalarProperty Name="Session_Link" ColumnName="Session_Link" />
+                <ScalarProperty Name="Session_List" ColumnName="Session_List" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="remaining_capacity" ColumnName="remaining_capacity" />
+                <ScalarProperty Name="is_cancelled" ColumnName="is_cancelled" />
+                <ScalarProperty Name="minumum_Level" ColumnName="minumum_Level" />
+                <ScalarProperty Name="maximum_Level" ColumnName="maximum_Level" />
+                <ScalarProperty Name="session_language_id" ColumnName="session_language_id" />
+                <ScalarProperty Name="is_free" ColumnName="is_free" />
+                <ScalarProperty Name="Category_id" ColumnName="Category_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="student_session_registrations">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.student_session_registrations">
+              <MappingFragment StoreEntitySet="student_session_registrations">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="session_id" ColumnName="session_id" />
+                <ScalarProperty Name="registration_date" ColumnName="registration_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subscription_plans">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.subscription_plans">
+              <MappingFragment StoreEntitySet="subscription_plans">
+                <ScalarProperty Name="plan_id" ColumnName="plan_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Available_Sessions" ColumnName="Available_Sessions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subscriptions">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.subscription">
+              <MappingFragment StoreEntitySet="subscriptions">
+                <ScalarProperty Name="subscription_id" ColumnName="subscription_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="plan_id" ColumnName="plan_id" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="left_sessions" ColumnName="left_sessions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_languages">
+            <EntityTypeMapping TypeName="SeekToSpeakModel.User_languages">
+              <MappingFragment StoreEntitySet="User_languages">
+                <ScalarProperty Name="User_language_id" ColumnName="User_language_id" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="language_id" ColumnName="language_id" />
+                <ScalarProperty Name="language_level" ColumnName="language_level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="SeekToSpeakModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,103 @@
+CREATE TABLE Levels (
+Level_id INT PRIMARY KEY identity(1,1),
+Level_name varchar(255) not Null ,
+Level_Description varchar(max)  ,
+
+);
+CREATE TABLE speakers (
+  Speaker_id INT PRIMARY KEY identity(1,1),
+  user_id nvarchar(128) NOT NULL REFERENCES AspNetUsers(Id) ,
+  Status bit NOT NULL DEFAULT 0,
+  Level_id INT NOT NULL REFERENCES Levels(Level_id),
+  Speaker_major VARCHAR(255) NOT NULL,
+  Speaker_about VARCHAR(max) NOT NULL ,
+  registration_date date ,
+);
+CREATE TABLE Students (
+  Student_id INT PRIMARY KEY identity(1,1),
+  user_id nvarchar(128) NOT NULL REFERENCES AspNetUsers(Id) ,
+  Status bit NOT NULL DEFAULT 1,
+  Level_id INT NOT NULL REFERENCES Levels(Level_id),
+  Student_major VARCHAR(255) ,
+  Student_about VARCHAR(max)  ,
+  registration_date date ,
+);
+CREATE TABLE subscription_plans (
+  plan_id int  PRIMARY KEY identity(1,1),
+  name VARCHAR(255) NOT NULL,
+  description VARCHAR(max),
+  price float NOT NULL,
+  Available_Sessions int NOT NULL,
+);
+
+CREATE TABLE subscriptions (
+  subscription_id int PRIMARY KEY identity(1,1),
+  user_id nvarchar(128) NOT NULL REFERENCES AspNetUsers(Id) ,
+  plan_id INT NOT NULL REFERENCES subscription_plans(plan_id),
+  start_date DATE NOT NULL,
+  end_date DATE NOT NULL,
+  is_active bit NOT NULL DEFAULT 1
+);
+
+CREATE TABLE sessions (
+  session_id int PRIMARY KEY identity(1,1),
+  speaker_id INT NOT NULL REFERENCES speakers(speaker_id),
+  description TEXT NOT NULL,
+  start_time datetime NOT NULL,
+  end_time datetime NOT NULL,
+  Session_Link varchar(max) ,
+  Session_List varchar(max) ,
+  capacity INT NOT NULL,
+  remaining_capacity INT NOT NULL,
+  is_cancelled bit NOT NULL DEFAULT 0,
+  minumum_Level int REFERENCES Levels(Level_Id),
+  maximum_Level int REFERENCES Levels(Level_Id)
+);
+CREATE TABLE payments (
+  payment_id int PRIMARY KEY identity(1,1),
+  user_id nvarchar(128) NOT NULL REFERENCES AspNetUsers(Id),
+  subscription_id INT NOT NULL REFERENCES subscriptions(subscription_id),
+  payment_date datetime NOT NULL,
+  amount float NOT NULL
+);
+
+CREATE TABLE payment_methods (
+  method_id int PRIMARY KEY identity(1,1),
+  user_id nvarchar(128) NOT NULL REFERENCES AspNetUsers(Id),
+  name VARCHAR(255) NOT NULL,
+  card_type VARCHAR(255) NOT NULL,
+  card_digits VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE student_session_registrations (
+  id int PRIMARY KEY identity(1,1),
+  student_id nvarchar(128) NOT NULL REFERENCES AspNetUsers(Id),
+  session_id INT NOT NULL REFERENCES sessions(session_id),
+  registration_date DATE NOT NULL,
+);
+Create table FeedBacks (
+Feed_id int PRIMARY KEY identity(1,1),
+giver_id nvarchar(128) NOT NULL REFERENCES AspNetUsers(Id),
+reciever_id nvarchar(128) NOT NULL REFERENCES AspNetUsers(Id),
+session_id INT NOT NULL REFERENCES sessions(session_id),
+comment varchar(max) NOT NULL,
+Level_id INT NOT NULL REFERENCES Levels(Level_id),
+
+);
+CREATE TABLE languages (
+    language_id int PRIMARY KEY identity (1,1),
+    language_name VARCHAR(50) NOT NULL,
+	language_image varchar(max),
+);
+
+CREATE TABLE speaker_languages (
+    speaker_language_id int PRIMARY KEY identity (1,1),
+    speaker_id INT NOT NULL REFERENCES speakers(speaker_id),
+    language_id INT NOT NULL REFERENCES languages(language_id),
+    language_level INT NOT NULL REFERENCES Levels(Level_id),
+   
+);
+ALTER TABLE sessions ADD session_language_id INT NOT NULL REFERENCES languages(language_id);
+ALTER TABLE speakers DROP CONSTRAINT FK__speakers__Level___66603565;
+ALTER TABLE Speakers drop COLUMN Level_id ;

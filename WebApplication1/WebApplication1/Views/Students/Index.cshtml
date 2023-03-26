@@ -1,0 +1,101 @@
+﻿@model IEnumerable<WebApplication1.Models.AspNetUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Main_Admin2.cshtml";
+}
+
+<h2>Students</h2>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table text-muted">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.major)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.regestration_date)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.is_accepted)
+                    </th>
+
+
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.major)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.regestration_date)
+                        </td>
+
+                        <td>
+
+                            @if (item.is_accepted == true)
+                            {
+                                <label class="badge badge-complete" style="background-color: #28a745; height: 30px; display: grid; align-items: center; color: white; ">Accepted</label>
+                            }
+                            else if (item.is_accepted == false)
+                            {
+                                <span class="badge badge-complete" style="background-color: #dc3545; height: 30px; display: grid; align-items: center;color:white; ">Blocked</span>
+                            }
+                            else
+                            { <span class="badge badge-pending" style="background-color: orange; height: 30px; display: grid; align-items: center; color: white; ">Pending</span>}
+                        </td>
+
+                        <td>
+                            @if (item.is_accepted == true)
+                            {
+                                <a href="/Speakers/Block?id=@item.Id">Block</a>
+
+                            }
+                            else if (item.is_accepted == false || item.is_accepted == null)
+                            {
+                                <a href="/Speakers/Accept?id=@item.Id">Allow</a>
+                            }
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

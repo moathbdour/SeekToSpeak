@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f1a616132d2b45f3865f8748f4a79710" Name="Diagram1">
+        <EntityTypeShape EntityType="SeekToSpeakModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.AspNetRole" Width="1.5" PointX="0.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.AspNetUser" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.Category" Width="1.5" PointX="6" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.City" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.FeedBack" Width="1.5" PointX="8.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.language" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.Level" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.payment_methods" Width="1.5" PointX="5.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.payment" Width="1.5" PointX="7.5" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.session" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.student_session_registrations" Width="1.5" PointX="5.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.subscription_plans" Width="1.5" PointX="8" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.subscription" Width="1.5" PointX="10.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeekToSpeakModel.User_languages" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <AssociationConnector Association="SeekToSpeakModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__FeedBacks__giver__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__FeedBacks__recie__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__payment_m__user___7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__speaker_l__speak__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__student_s__stude__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__subscript__user___6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK_AspNetUsers_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK_sessions_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK_sessions_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__FeedBacks__Level__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__FeedBacks__sessi__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__sessions__sessio__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__speaker_l__langu__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__sessions__maximu__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__sessions__minumu__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__speaker_l__langu__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK_payments_payment_methods" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__payments__subscr__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__student_s__sessi__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.FK__subscript__plan___70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="SeekToSpeakModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

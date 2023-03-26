@@ -1,0 +1,211 @@
+﻿@using Microsoft.AspNet.Identity
+
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        if (User.IsInRole("Speaker"))
+        {
+            <li class="account-access rbt-user-wrapper d-none d-xl-block">
+                <a href="#"><i class="feather-user"></i>Account</a>
+                <div class="rbt-user-menu-list-wrapper">
+                    <div class="inner">
+                        <div class="rbt-admin-profile">
+                            <div class="admin-thumbnail">
+                                <img src="~/assets/images/team/avatar.jpg" alt="User Images">
+                            </div>
+                            <div class="admin-info">
+                                <span class="name">Nipa Bali</span>
+                                <a class="rbt-btn-link color-primary" href="profile.html">View Profile</a>
+                            </div>
+                        </div>
+                        <ul class="user-list-wrapper">
+                            <li>
+                                <a href="instructor-dashboard.html">
+                                    <i class="feather-home"></i>
+                                    <span>Speaker Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="instructor-enrolled-courses.html">
+                                    <i class="feather-shopping-bag"></i>
+                                    <span>Enrolled Courses</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="instructor-reviews.html">
+                                    <i class="feather-star"></i>
+                                    <span>Reviews</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="instructor-reviews.html">
+                                    <i class="feather-star"></i>
+                                    <span>My Sessions</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                        <hr class="mt--10 mb--10">
+                      
+                     
+                        <ul class="user-list-wrapper">
+                            <li>
+                                <a href="instructor-settings.html">
+                                    <i class="feather-settings"></i>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:document.getElementById('logoutForm').submit()">
+                                    <i class="feather-log-out"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        }
+        else if (User.IsInRole("Student"))
+        {
+            <li class="account-access rbt-user-wrapper d-none d-xl-block">
+                <a href="#"><i class="feather-user"></i>Account</a>
+                <div class="rbt-user-menu-list-wrapper">
+                    <div class="inner">
+                        <div class="rbt-admin-profile">
+                            <div class="admin-thumbnail">
+                                <img src="~/assets/images/team/avatar.jpg" alt="User Images">
+                            </div>
+                            <div class="admin-info">
+                                <span class="name">Nipa Bali</span>
+                                <a class="rbt-btn-link color-primary" href="profile.html">View Profile</a>
+                            </div>
+                        </div>
+                        <ul class="user-list-wrapper">
+                            <li>
+                                <a href="instructor-dashboard.html">
+                                    <i class="feather-home"></i>
+                                    <span>My Dashboard</span>
+                                </a>
+                            </li>
+                          
+                            <li>
+                                <a href="instructor-enrolled-courses.html">
+                                    <i class="feather-shopping-bag"></i>
+                                    <span>Enrolled Courses</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="instructor-wishlist.html">
+                                    <i class="feather-heart"></i>
+                                    <span>Past Courses</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="instructor-reviews.html">
+                                    <i class="feather-star"></i>
+                                    <span>Reviews</span>
+                                </a>
+                            </li>
+                          
+                         
+                          
+                        </ul>
+                        <hr class="mt--10 mb--10">
+                      
+                        <ul class="user-list-wrapper">
+                            <li>
+                                <a href="instructor-settings.html">
+                                    <i class="feather-settings"></i>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:document.getElementById('logoutForm').submit()">
+                                    <i class="feather-log-out"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        }
+        else if (User.IsInRole("Admin"))
+        {
+            <li class="account-access rbt-user-wrapper d-none d-xl-block">
+                <a href="#"><i class="feather-user"></i>Admin</a>
+                <div class="rbt-user-menu-list-wrapper">
+                    <div class="inner">
+                        <div class="rbt-admin-profile">
+                            <div class="admin-thumbnail">
+                                <img src="~/assets/images/team/avatar.jpg" alt="User Images">
+                            </div>
+                            <div class="admin-info">
+                                <span class="name">Nipa Bali</span>
+                                <a class="rbt-btn-link color-primary" href="profile.html">View Profile</a>
+                            </div>
+                        </div>
+                        <ul class="user-list-wrapper">
+                            <li>
+                                <a href="instructor-dashboard.html">
+                                    <i class="feather-home"></i>
+                                    <span> Dashboard</span>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="instructor-enrolled-courses.html">
+                                    <i class="feather-shopping-bag"></i>
+                                    <span>Statistics</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="instructor-wishlist.html">
+                                    <i class="feather-heart"></i>
+                                    <span>Speakers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="instructor-reviews.html">
+                                    <i class="feather-star"></i>
+                                    <span>subscription_plans</span>
+                                </a>
+                            </li>
+                          
+                            
+                           
+                        </ul>
+                        <hr class="mt--10 mb--10">
+                     
+                        <ul class="user-list-wrapper">
+                          
+                            <li>
+                                <a href="javascript:document.getElementById('logoutForm').submit()">
+                                    <i class="feather-log-out"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        }
+
+
+      
+    }
+}
+else
+{
+
+    <div class="rbt-btn-wrapper d-none d-xl-block">
+        <a class="rbt-btn btn-border-gradient hover-icon-reverse" href="/account/Login">
+            <span data-text="Enroll Now">Enroll Now</span>
+        </a>
+    </div>
+}

@@ -1,0 +1,133 @@
+﻿@model WebApplication1.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+
+<div class="rbt-elements-area bg-color-white rbt-section-gap">
+    <div class="container">
+        <div class="row gy-5 row--30 justify-content-center">
+
+          
+
+            <div class="col-lg-5">
+                <div class="rbt-contact-form contact-form-style-1 max-width-auto">
+                    <h3 class="title">Register</h3>
+                    <form class="max-width-auto" method="post">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                        <div class="form-group">
+                            <input name="Email" type="text" />
+                            <label>Email address *</label>
+                            <span class="focus-border"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input name="FristName" type="text">
+                            <label>FristName *</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <div class="form-group">
+                            <input name="LastName" type="text">
+                            <label>LastName *</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <div class="form-group">
+                            <input name="Password" type="password">
+                            <label>Password *</label>
+                            <span class="focus-border"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input name="ConfirmPassword" type="password">
+                            <label>Confirm Password *</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <div class="form-group">
+                            <input name="Phone" type="number">
+                            <label>Phone Number</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <div class="form-group">
+                            <input name="role" checked type="radio" value="Student">
+                            <label>Student</label>
+
+                        </div>
+                        <div class="form-group">
+                            <input name="role" type="radio" value="Speaker">
+                            <label>Speaker</label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>City</label><br />
+                            <select name="City">
+                                <option value="1">Irbid</option>
+                                <option value="2">Amman</option>
+
+                            </select>
+
+                            <span class="focus-border"></span>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="About"></textarea>
+                            <label>About yourself</label>
+                            <span class="focus-border"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Level</label><br />
+                            <select name="Level">
+                                <option value="1">Native</option>
+                                <option value="2">Advance</option>
+                            </select>
+
+                            <span class="focus-border"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input name="major" type="text">
+                            <label>Major</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Languages</label><br />
+                            <select name="Languages">
+                                <option value="1">English</option>
+                                <option value="2">France</option>
+                            </select>
+
+                            <span class="focus-border"></span>
+                        </div>
+
+
+                     
+                        <div class="form-submit-group">
+                            <button type="submit" class="rbt-btn btn-md btn-gradient hover-icon-reverse w-100">
+                                <span class="icon-reverse-wrapper">
+                                    <span class="btn-text">Register</span>
+                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                </span>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
