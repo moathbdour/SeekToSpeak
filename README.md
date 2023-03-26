@@ -1,0 +1,2 @@
+# SeekToSpeak
+ "Welcome to Seek To Speak! This is a brief description of the project. The website allows students to browse and register for language sessions taught by qualified speakers, as well as providing a platform for speakers to create and manage their own sessions. The project was developed using HTML,CSS,JavaScript,ASP.Net MVC,Sql Server,Entity Framework. Thank you for your interest in our project!"
